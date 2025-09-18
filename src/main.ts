@@ -28,8 +28,6 @@ async function getUsers(username: string): Promise<void> {
     createUser(data);
     getRepos(username);
   } catch (error: any) {
-    console.error(error);
-
     if (error?.response?.status === 404) {
       createErrorCard("No profile with this username");
     }
@@ -92,7 +90,6 @@ const getRepos = async (username: string): Promise<void> => {
     );
     addRepos(data);
   } catch (error) {
-    console.error(error);
     createErrorCard("Problem fetching repos");
   }
 };
